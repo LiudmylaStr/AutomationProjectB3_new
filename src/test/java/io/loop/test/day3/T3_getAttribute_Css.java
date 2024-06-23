@@ -24,7 +24,7 @@ import org.openqa.selenium.WebElement;
 
      */
 public class T3_getAttribute_Css {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
       //go to URL
 
         WebDriver driver = WebDriverUtil.getDriver("chrome");
@@ -46,6 +46,24 @@ public class T3_getAttribute_Css {
             System.out.println("TEST FAIL");
         }
 
+        WebElement userName = driver.findElement(By.cssSelector("input[id='input-14' "));
+       userName.sendKeys("b1g3_client@gmail.com");
+
+        WebElement password = driver.findElement(By.cssSelector("input[id='input-15' "));
+       password.sendKeys("Group3");
+
+        WebElement loginButton = driver.findElement(By.cssSelector("span[class='v-btn__content' "));
+        Thread.sleep(3000);
+        loginButton.click();
+
+//        Thread.sleep(3000);
+//WebElement chooseAccountClick = driver.findElement(By.cssSelector("button[class='text-non body-2'"));
+//chooseAccountClick.click();
+
+        Thread.sleep(5000);
+        WebElement homeIcon= driver.findElement(By.cssSelector("span[class='v-btn__content' "
+                ));
+        System.out.println(homeIcon.getText());
     }
 
 }
