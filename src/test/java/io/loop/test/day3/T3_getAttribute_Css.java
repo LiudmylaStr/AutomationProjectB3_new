@@ -56,12 +56,12 @@ public class T3_getAttribute_Css {
         Thread.sleep(3000);
         loginButton.click();
 
-//        Thread.sleep(3000);
-//WebElement chooseAccountClick = driver.findElement(By.cssSelector("button[class='text-non body-2'"));
-//chooseAccountClick.click();
+        Thread.sleep(3000);
+WebElement chooseAccountClick = driver.findElement(By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div > div.d-modal__footer > div > button"));
+chooseAccountClick.click();
 
         Thread.sleep(5000);
-        WebElement homeIcon= driver.findElement(By.cssSelector("span[class='v-btn__content' "
+        WebElement homeIcon= driver.findElement(By.cssSelector("span[class='body-1' "
                 ));
         System.out.println(homeIcon.getText());
     }
