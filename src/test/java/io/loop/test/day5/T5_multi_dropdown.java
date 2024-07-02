@@ -3,6 +3,7 @@ package io.loop.test.day5;
 import io.loop.test.utilities.WebDriverUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class T5_multi_dropdown {
  /*
@@ -50,6 +52,17 @@ public class T5_multi_dropdown {
 //
 //    dropdown.selectByIndex(3);
 
+List< WebElement> options;
+options = dropdown.getOptions();
 
+
+//for (WebElement option : options) {
+//    option.click();
+//    System.out.println(option.getText());}
+
+    options.forEach(option -> {
+        option.click();
+        System.out.println(option.getText());
+    });
 }
 }
