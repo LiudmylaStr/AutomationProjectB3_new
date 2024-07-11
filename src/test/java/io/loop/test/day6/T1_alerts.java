@@ -34,12 +34,17 @@ public class T1_alerts  extends TestBase {
      */
     @Test
     public void informationAlert() {
+       // 1. Open browser
+        // 2. Go to website: https://loopcamp.vercel.app/javascript-alerts.html
         driver.get("https://loopcamp.vercel.app/javascript-alerts.html");
+
+        // 3. Click to “Click for JS Alert” button
         WebElement clickForJSAlert = driver.findElement(By.xpath("//button[.='Click for JS Alert']"));
+        // Click to OK button from the alert
         clickForJSAlert.click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
-
+// 5. Validate “You successfully clicked an alert” text is displayed
         WebElement successMessageForInformationAlert = driver.findElement(By.xpath("//p[@id='result']"));
         String expected = "You successfully clicked an alert";
         String actual = successMessageForInformationAlert.getText();
@@ -49,11 +54,13 @@ public class T1_alerts  extends TestBase {
     @Test
     public void confirmationAlert() {
         driver.get("https://loopcamp.vercel.app/javascript-alerts.html");
-        WebElement clickForJSConfirm = driver.findElement(By.xpath("//button[.='Click for JS Confirm']"));
+        WebElement clickForJSConfirm =
+                driver.findElement(By.xpath("//button[.='Click for JS Confirm']"));
         clickForJSConfirm.click();
 
         driver.switchTo().alert().accept(); // will click ok and accept the alert
-        WebElement successMessageForConfirmationAlert = driver.findElement(By.xpath("//p[@id='result']"));
+        WebElement successMessageForConfirmationAlert =
+                driver.findElement(By.xpath("//p[@id='result']"));
         String expected = "You clicked: Ok";
         String actual = successMessageForConfirmationAlert.getText();
         assertEquals(actual, expected, "Actual does not match the expected");
@@ -70,7 +77,8 @@ public class T1_alerts  extends TestBase {
     @Test
     public void promptAlert(){
         driver.get("https://loopcamp.vercel.app/javascript-alerts.html");
-        WebElement clickJSPrompt = driver.findElement(By.xpath("//button[.='Click for JS Prompt']"));
+        WebElement clickJSPrompt =
+                driver.findElement(By.xpath("//button[.='Click for JS Prompt']"));
         clickJSPrompt.click();
 
         String text = "Loopcamp";
@@ -82,7 +90,8 @@ public class T1_alerts  extends TestBase {
         alert.sendKeys(text);
         alert.accept();
 
-        WebElement successMessagePromptAlert = driver.findElement(By.xpath("//p[@id='result']"));
+        WebElement successMessagePromptAlert = driver.findElement
+                (By.xpath("//p[@id='result']"));
         String actual = successMessagePromptAlert.getText();
         String expected = "You entered: " + text;
         assertEquals(actual, expected, "Actual does not match the expected");
