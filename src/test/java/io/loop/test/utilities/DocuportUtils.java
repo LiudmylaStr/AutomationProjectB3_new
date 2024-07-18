@@ -46,7 +46,7 @@ public class DocuportUtils {
             Thread.sleep(3000);
             WebElement cont = driver.findElement(By.xpath("//button[@type='submit']"));
             cont.click();
-            Thread.sleep(3000);
+           // Thread.sleep(3000);
 
         }
     }
